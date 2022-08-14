@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "game": "libs/game",
+    "rpgnet": "apps/rpgnet",
+    "rpgnet-api": "apps/rpgnet-api",
+    "rpgnet-api.Test": "apps/rpgnet-api.Test",
+    "rpgnet-e2e": "apps/rpgnet-e2e"
+  }
+}

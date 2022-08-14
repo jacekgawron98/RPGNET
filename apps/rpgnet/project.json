@@ -1,0 +1,80 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rpgnet/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/rpgnet",
+        "index": "apps/rpgnet/src/index.html",
+        "baseHref": "/",
+        "main": "apps/rpgnet/src/main.tsx",
+        "polyfills": "apps/rpgnet/src/polyfills.ts",
+        "tsConfig": "apps/rpgnet/tsconfig.app.json",
+        "assets": ["apps/rpgnet/src/favicon.ico", "apps/rpgnet/src/assets"],
+        "styles": ["apps/rpgnet/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/rpgnet/src/environments/environment.ts",
+              "with": "apps/rpgnet/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "rpgnet:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "rpgnet:build:development"
+        },
+        "production": {
+          "buildTarget": "rpgnet:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rpgnet/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/rpgnet"],
+      "options": {
+        "jestConfig": "apps/rpgnet/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

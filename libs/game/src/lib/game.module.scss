@@ -1,7 +1,14 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.game {
+    display: flex;
+
+    &__menu {
+        flex-basis: 25%;
+        flex-grow: 1;
+    }
+
+    &__content {
+        flex-basis: 100%;
+        flex-grow: 4;
+    }
+}
+

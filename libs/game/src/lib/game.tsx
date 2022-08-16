@@ -7,10 +7,10 @@ export interface GameProps {}
 
 export function Game(props: GameProps) {
   return (
-    <div className={styles['container']}>
-      <GameMenu />
-      <GameCanvas />
-      <GameMenu />
+    <div className={styles['game']}>
+      <GameMenu className={styles['game__menu']}/>
+      <GameCanvas className={styles['game__content']}/>
+      <GameMenu className={styles['game__menu']}/>
     </div>
   );
 }

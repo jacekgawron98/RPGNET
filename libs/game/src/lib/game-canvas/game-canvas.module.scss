@@ -1,6 +1,5 @@
 .game-canvas {
     &__canvas {
-        width: 100%;
-        height: calc(100vh - 3px);
+        vertical-align: bottom;
     }
 }

@@ -1,23 +1,32 @@
 import styles from './game-canvas.module.scss';
-import { initCanvas } from '../../logic/canvasMain';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useCanvasDraw from '../../logic/canvasDraw';
+import useCanvasInit from '../../logic/canvasMain';
 
-/* eslint-disable-next-line */
-export interface GameCanvasProps {}
+export interface GameCanvasProps {
+  width: number;
+  height: number;
+}
 
 export function GameCanvas(props: GameCanvasProps & React.HTMLAttributes<HTMLElement>) {
+  const canvasRef = useRef<HTMLCanvasElement|null>(null);
 
-  useEffect( () => {
-    const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement | null;
-    if (canvas) {
-      initCanvas(canvas)
-    } 
-  }, 
-  []);
+  const canvasInit = useCanvasInit();
+  const drawInit = useCanvasDraw();
+
+  useEffect(() => {
+    canvasInit(canvasRef.current)
+    drawInit(canvasRef.current)
+  }, []);
 
   return (
     <div className={`${props.className} ${styles['game-canvas']}`}>
-      <canvas id="gameCanvas" className={styles['game-canvas__canvas']}></canvas>
+      <canvas 
+        width={props.width}
+        height={props.height}
+        ref={canvasRef} 
+        className={styles['game-canvas__canvas']}>
+      </canvas>
     </div>
   );
 }

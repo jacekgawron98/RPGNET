@@ -9,7 +9,11 @@ export function Game(props: GameProps) {
   return (
     <div className={styles['game']}>
       <GameMenu className={styles['game__menu']}/>
-      <GameCanvas className={styles['game__content']}/>
+      <GameCanvas 
+        className={styles['game__content']}
+        width = {document.body.clientWidth * 0.7}
+        height = {window.innerHeight}
+      />
       <GameMenu className={styles['game__menu']}/>
     </div>
   );

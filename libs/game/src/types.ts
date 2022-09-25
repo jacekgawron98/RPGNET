@@ -1,0 +1,1 @@
+export type CanvasToolState = 'MOVE' | 'DRAW' | 'ZOOM' | 'HIDE' | 'MEASURE';

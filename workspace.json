@@ -6,6 +6,7 @@
     "rpgnet": "apps/rpgnet",
     "rpgnet-api": "apps/rpgnet-api",
     "rpgnet-api.Test": "apps/rpgnet-api.Test",
-    "rpgnet-e2e": "apps/rpgnet-e2e"
+    "rpgnet-e2e": "apps/rpgnet-e2e",
+    "store": "libs/store"
   }
 }

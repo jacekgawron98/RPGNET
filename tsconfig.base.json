@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rpgnet/game": ["libs/game/src/index.ts"]
+      "@rpgnet/game": ["libs/game/src/index.ts"],
+      "@rpgnet/store": ["libs/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
